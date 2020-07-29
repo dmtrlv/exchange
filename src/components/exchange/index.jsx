@@ -118,15 +118,17 @@ const ExchangePage = () => {
             <Heading content="Crypto Exchange" className="main-title" />
             <p className="sub-title">Exchange fast and easy</p>
             <div className="currencies-inputs-block">
-
-              <Currency
-                selectedItem={selectedFrom}
-                list={memorizedCurrenciesFrom}
-                onClick={(e, itemTicker) => setCurrency(e, itemTicker, 'from')}
-                value={amountFrom}
-                onChange={handleChangeAmountFrom}
-                type="number"
-              />
+              <div>
+                <Currency
+                  selectedItem={selectedFrom}
+                  list={memorizedCurrenciesFrom}
+                  onClick={(e, itemTicker) => setCurrency(e, itemTicker, 'from')}
+                  value={amountFrom}
+                  onChange={handleChangeAmountFrom}
+                  type="number"
+                />
+              {estimateErrors.length > 0 ? renderAlertMessage(estimateErrors) : null}
+              </div>
 
               <SwitchButton onClick={() => dispatch(switchCurrency(from, to))} />
 
@@ -138,7 +140,7 @@ const ExchangePage = () => {
               />
 
             </div>
-            {estimateErrors.length > 0 ? renderAlertMessage(estimateErrors) : null}
+            {/* {estimateErrors.length > 0 ? renderAlertMessage(estimateErrors) : null} */}
             <div className="enter-address-block">
               <p className="enter-wallet-address-title">
                 Enter your&nbsp;
@@ -148,7 +150,7 @@ const ExchangePage = () => {
               <div className="flex-container">
                 <Input
                   type="text"
-                  placeholder={`Enter your ${to.toUpperCase()} recipient address`}
+                  placeholder={`Enter your ${to.toUpperCase()} wallet address`}
                   onChange={enterAddress}
                   value={walletAddress}
                   className="wallet-input"
