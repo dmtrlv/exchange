@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 
 export const ExchangeWrapper = styled.div`
-
   .main-title {
     margin: 0 0 10px 0;
   }
@@ -15,6 +14,11 @@ export const ExchangeWrapper = styled.div`
   .currencies-inputs-block {
     display: flex;
     margin: 10px 0;
+
+    @media (max-width: ${(p) => p.theme.screenSm}) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   .enter-address-block {
@@ -29,8 +33,8 @@ export const ExchangeWrapper = styled.div`
       justify-content: space-between;
       .wallet-input {
         background: #fff;
-        border: 1px solid ${(p) => p.theme.colorLightGray};
         width: 100%;
+        border: 1px solid ${(p) => p.theme.colorLightGray};
         margin: 0 12px 0 0;
       }
 
@@ -47,6 +51,20 @@ export const ExchangeWrapper = styled.div`
         cursor: pointer;
       }
     }
+  }
 
+  @media (max-width: ${(p) => p.theme.screenSm}) {
+    .enter-address-block{
+      .flex-container {
+        flex-direction: column;
+        .wallet-input {
+          margin: 0 0 12px 0;
+          width: inherit;
+        }
+        .start-exchange-btn {
+          margin: 12px 0 0 0;
+        }
+      }
+    }
   }
 `;

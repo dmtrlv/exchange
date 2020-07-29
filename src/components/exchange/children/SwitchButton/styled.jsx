@@ -19,4 +19,13 @@ export const Button = styled.button`
   svg {
     fill: ${(p) => p.theme.colorBrand}
   }
+
+  @media (max-width: ${(p) => p.theme.screenSm}) {
+    margin: 8px 0;
+    transform: rotate(90deg);
+
+    &.active {
+      transform: rotate(450deg);
+    }
+  }
 `;
