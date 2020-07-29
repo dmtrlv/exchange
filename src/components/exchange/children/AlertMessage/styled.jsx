@@ -11,4 +11,6 @@ export const AlertMessageWrapper = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
+  margin: 8px 0;
+  z-index: 3;
 `;
